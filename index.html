@@ -8,28 +8,38 @@
     <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
 </head>
 <body>
-    <h1>人数カウントツール</h1>
+    <div class="container"> 
+        <h1>人数カウントツール</h1>
 
-    <div class="controls">
-        <button id="startCountBtn">集計開始</button>
-        <button id="personCountBtn">人カウント (+1)</button>
-        <button id="endCountBtn" disabled>集計終了</button>
-    </div>
+        <div class="section-card controls"> 
+            <div class="control-group main-actions">
+                <button id="startCountBtn">集計開始</button>
+                <button id="endCountBtn" disabled>集計終了</button>
+            </div>
+            
+            <div class="control-group count-actions">
+                <button id="personCountBtn">人カウント (+1)</button>
+                <button id="undoLastCountBtn" disabled>一つ前のカウントを取り消し</button>
+            </div>
+        </div>
 
-    <div class="display">
-        <p>現在の人数: <span id="currentCount">0</span></p>
-        <p>集計開始時刻: <span id="startTime">--</span></p>
-        <p>集計終了時刻: <span id="endTime">--</span></p>
-    </div>
+        <div class="section-card display"> 
+            <h2>現在の状況</h2>
+            <p>現在の人数: <span id="currentCount">0</span></p>
+            <p>集計開始時刻: <span id="startTime">--</span></p>
+            <p>集計終了時刻: <span id="endTime">--</span></p>
+        </div>
 
-    <div class="data-list">
-        <h2>カウント履歴</h2>
-        <ul id="timestampsList">
+        <div class="section-card data-list"> 
+            <h2>カウント履歴</h2>
+            <ul id="timestampsList">
+               
             </ul>
-    </div>
+        </div>
 
-    <div class="download">
-        <button id="undoLastCountBtn" disabled>一つ前のカウントを取り消し</button> <button id="downloadExcelBtn">Excelダウンロード</button>
+        <div class="section-card download"> 
+            <button id="downloadExcelBtn">Excelダウンロード</button>
+        </div>
     </div>
 
     <script src="script.js"></script>
