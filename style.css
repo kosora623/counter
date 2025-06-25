@@ -1,0 +1,118 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+    text-align: center;
+    touch-action: manipulation; /* スマホでのピンチズーム対策 */
+}
+
+h1 {
+    color: #0056b3;
+}
+
+.controls button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    touch-action: manipulation; /* スマホでのピンチズーム対策 */
+}
+
+#startCountBtn {
+    background-color: #28a745;
+    color: white;
+}
+
+#startCountBtn:hover {
+    background-color: #218838;
+}
+
+#personCountBtn {
+    background-color: #007bff;
+    color: white;
+    font-size: 2em; /* カウントボタンを大きく */
+    padding: 20px 40px;
+}
+
+#personCountBtn:hover {
+    background-color: #0056b3;
+}
+
+#endCountBtn {
+    background-color: #dc3545;
+    color: white;
+}
+
+#endCountBtn:hover {
+    background-color: #c82333;
+}
+
+#personCountBtn:disabled, #endCountBtn:disabled, #startCountBtn:disabled, #undoLastCountBtn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.display, .data-list, .download {
+    background-color: white;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    max-width: 600px;
+    text-align: left;
+}
+
+.display p {
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+
+.data-list ul {
+    list-style-type: none;
+    padding: 0;
+    max-height: 200px; /* スクロール可能にするための最大高さ */
+    overflow-y: auto; /* コンテンツがはみ出したらスクロールバーを表示 */
+    border: 1px solid #eee;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.data-list li {
+    padding: 5px 0;
+    border-bottom: 1px dotted #eee;
+}
+
+.data-list li:last-child {
+    border-bottom: none;
+}
+
+#downloadExcelBtn {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+#downloadExcelBtn:hover {
+    background-color: #218838;
+}
+
+#undoLastCountBtn {
+    background-color: #ffc107;
+    color: #333;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#undoLastCountBtn:hover {
+    background-color: #e0a800;
+}
