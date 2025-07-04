@@ -7,7 +7,7 @@ model = YOLO('yolov8n.pt')
 
 # 録画映像のパスを指定
 # 例: 'your_video.mp4' または カメラの場合 '0'
-video_path = "C:\\Program Files\\test.mp4" # ここにご自身の動画ファイルのパスを入力してください
+video_path = "C:\\cafe1_0627.mp4" # ここにご自身の動画ファイルのパスを入力してください
 # video_path = 0  # ウェブカメラを使用する場合
 
 # 動画キャプチャオブジェクトの作成
