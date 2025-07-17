@@ -7,12 +7,9 @@ from ultralytics import YOLO
 print("1. モデルをロード中...")
 model = YOLO('yolov8n.pt')
 
-# 処理する動画ファイルのディレクトリとパターン
-# 例: videoフォルダ内の 'output_000.mp4' から 'output_032.mp4' までを処理
 video_directory = 'video'
-video_pattern = os.path.join(video_directory, 'output_*.mp4') # 'video/output_000.mp4' など
+video_pattern = os.path.join(video_directory, 'output_*.mp4') 
 
-# globを使って動画ファイルのリストを取得
 video_files = sorted(glob(video_pattern))
 
 if not video_files:
@@ -53,8 +50,7 @@ for video_path in video_files:
 
     video_writer_mp4 = None
     video_writer_avi = None
-
-    # MP4コーデックを試す (mp4v)
+    
     try:
         video_writer_mp4 = cv2.VideoWriter(output_video_path_mp4, cv2.VideoWriter_fourcc(*'mp4v'), fps, (width, height))
         if not video_writer_mp4.isOpened():
