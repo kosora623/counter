@@ -64,30 +64,6 @@ for video_path in video_files:
         print(f"  警告: MP4形式 ({output_video_path_mp4}) での出力に例外が発生しました: {e}. 別のコーデックを試します。")
         video_writer_mp4 = None
 
-    # MP4コーデックが失敗した場合、AVIコーデックを試す (XVID)
-    if video_writer_mp4 is None:
-        try:
-            video_writer_avi = cv2.VideoWriter(output_video_path_avi, cv2.VideoWriter_fourcc(*'XVID'), fps, (width, height))
-            if not video_writer_avi.isOpened():
-                print(f"  エラー: AVI形式 ({output_video_path_avi}) での出力も失敗しました。システムに適切なコーデックがインストールされているか確認してください。")
-                cap.release()
-                continue # 次のファイルへスキップ
-            else:
-                print(f"  出力動画ファイル (AVI形式) を作成しました: {output_video_path_avi}")
-        except Exception as e:
-            print(f"  エラー: AVI形式 ({output_video_path_avi}) での出力に例外が発生しました: {e}. システムに適切なコーデックがインストールされているか確認してください。")
-            cap.release()
-            continue # 次のファイルへスキップ
-    else:
-        print(f"  出力動画ファイル (MP4形式) を作成しました: {output_video_path_mp4}")
-
-    # 実際に使うvideo_writerを決定
-    video_writer = video_writer_mp4 if video_writer_mp4 is not None else video_writer_avi
-    if video_writer is None: # どちらのwriterも初期化できなかった場合
-        print("  重大なエラー: 動画の書き込みに利用可能なコーデックが見つかりませんでした。この動画の処理をスキップします。")
-        cap.release()
-        continue # 次のファイルへスキップ
-
     trace_image = None
     first_frame = True
     object_paths = {}
